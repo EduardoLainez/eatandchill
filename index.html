@@ -12,21 +12,67 @@
       background: #fffaf5;
       color: #333;
     }
+
+    /* Intro screen */
+    #intro-screen {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') center center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: white;
+      z-index: 9999;
+      transition: opacity 1s ease;
+    }
+
+    #intro-screen h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 64px;
+      margin-bottom: 20px;
+    }
+
+    #enter-button {
+      background: white;
+      color: #333;
+      border: none;
+      padding: 15px 40px;
+      font-size: 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: transform 0.3s ease;
+    }
+
+    #enter-button:hover {
+      transform: scale(1.05);
+    }
+
+    .fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+
     header {
       background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') no-repeat center center/cover;
       color: white;
       text-align: center;
       padding: 100px 20px;
     }
+
     header h1 {
       font-family: 'Playfair Display', serif;
       font-size: 60px;
       margin: 0;
     }
+
     header p {
       font-size: 20px;
       margin-top: 10px;
     }
+
     nav {
       background: white;
       padding: 15px 30px;
@@ -34,32 +80,39 @@
       justify-content: space-around;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
+
     nav a {
       text-decoration: none;
       color: #333;
       font-weight: bold;
     }
+
     section {
       padding: 60px 20px;
       max-width: 1000px;
       margin: auto;
     }
+
     .menu-item {
       margin-bottom: 30px;
     }
+
     .menu-item h3 {
       margin: 0;
       font-family: 'Playfair Display', serif;
     }
+
     .menu-item p {
       margin: 5px 0;
     }
+
     .reservation {
       background: #fefefe;
       padding: 40px;
       border-radius: 10px;
       box-shadow: 0 0 20px rgba(0,0,0,0.05);
     }
+
     footer {
       text-align: center;
       padding: 30px;
@@ -70,6 +123,13 @@
 </head>
 <body>
 
+<!-- Intro Screen -->
+<div id="intro-screen">
+  <h1>Welcome to Eat&Chill</h1>
+  <button id="enter-button">Enter to Chill</button>
+</div>
+
+<!-- Page Content -->
 <header>
   <h1>Eat&Chill</h1>
   <p>Luxury, flavor, and ocean breeze in the heart of Miami Beach</p>
@@ -153,6 +213,18 @@
 <footer>
   <p>© 2025 Eat&Chill | Designed to delight the senses.</p>
 </footer>
+
+<script>
+  const button = document.getElementById('enter-button');
+  const intro = document.getElementById('intro-screen');
+
+  button.addEventListener('click', () => {
+    intro.classList.add('fade-out');
+    setTimeout(() => {
+      intro.style.display = 'none';
+    }, 1000);
+  });
+</script>
 
 </body>
 </html>
